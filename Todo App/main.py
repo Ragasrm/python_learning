@@ -1,16 +1,7 @@
-def get_todos(filepath='todos.txt'):
-    """ Read the text file and return to-do items"""
-    with open(filepath, 'r') as file_local:
-        todos_local = file_local.readlines()
-    return todos_local
+# imports
+from functions import get_todos, write_todos
 
-
-def write_todos(todos_items, filepath='todos.txt'):
-    """ write the to-do items in text file"""
-    with open(filepath, 'w') as file:
-        file.writelines(todos_items)
-
-
+# program starts here..!
 while True:
     user_action = input("Type add or show or edit or complete or exit:").strip()
 
@@ -22,7 +13,6 @@ while True:
 
     elif user_action.startswith("show"):
         todos = get_todos()
-        # new_todos = [item.strip('\n') for item in todos]
         for index, todo in enumerate(todos):
             todo = todo.strip('\n')
             row = f"{index + 1}-{todo}"
@@ -41,7 +31,6 @@ while True:
             write_todos(todos)
         except ValueError:
             print("your commend is not valid")
-            # user_action = input("Type add or show or edit or complete or exit:").strip()
             continue
 
     elif user_action.startswith("complete"):
