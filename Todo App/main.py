@@ -1,5 +1,9 @@
 # imports
 from functions import get_todos, write_todos
+import time
+
+now = time.strftime("%b, %d %Y %H:%M:%S")
+print("it is ", now)
 
 # program starts here..!
 while True:
