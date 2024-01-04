@@ -8,8 +8,11 @@ add_btn = sg.Button("Add")
 list_box = sg.Listbox(values=functions.get_todos(), key="todos", enable_events=True, size=[45, 10] )
 edit_btn = sg.Button("Edit")
 
+
+# we make dynamic layout of need.
+layout=[[label],[input_box, add_btn],[list_box, edit_btn]]
 window = sg.Window("My TO-DO-APP",
-                   layout=[[label],[input_box, add_btn],[list_box, edit_btn]],
+                   layout=layout,
                    font=('Helvetica', 20))
 
 while True:
