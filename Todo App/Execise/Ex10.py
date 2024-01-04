@@ -5,6 +5,7 @@ Create a desktop GUI program that gets feet and inches from the user and outputs
 """
 
 import PySimpleGUI as sg
+sg.theme("Black")
 
 def convert(feet, inches):
     meters = feet * 0.3048 + inches * 0.0254
@@ -18,14 +19,20 @@ inches_input = sg.Input(key="inches")
 
 button = sg.Button("Convert")
 output_label = sg.Text("", key="output")
+exit_button = sg.Button("Exit")
 
 window = sg.Window("Convertor",
                    layout=[[feet_label, feet_input],
                            [inches_label, inches_input],
-                           [button, output_label]])
+                           [button, exit_button, output_label]])
 
 while True:
     event, values = window.read()
+    match event:
+        case "Exit":
+            break
+        case sg.WIN_CLOSED:
+            break
     feet = float(values["feet"])
     inches = float(values["inches"])
 
